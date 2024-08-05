@@ -1,23 +1,26 @@
 <x-layout>
     <div class="w-full flex justify-center items-center bg-slate-200 rounded-lg py-4 px-8">
-        <form class="w-full flex justify-center items-center flex-col" method="POST" action="/students/create"
-            enctype="multipart/form-data">
+        <form class="w-full flex justify-center items-center flex-col" method="POST"
+            action="/students/update/{{$student->id}}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="flex flex-col w-full mb-4">
                 <label class="mb-2">Image</label>
-                <input type="file" name="image_url" class="w-full p-2 border rounded" />
+                <input type="file" value="{{$student->image_url}}" name="image_url" class="w-full p-2 border rounded" />
             </div>
             <div class="flex flex-col w-full mb-4">
                 <label class="mb-2">Name</label>
-                <input type="text" name="name" placeholder="Name" class="w-full p-2 border rounded" />
+                <input type="text" value="{{$student->name}}" name="name" placeholder="Name"
+                    class="w-full p-2 border rounded" />
             </div>
             <div class="flex flex-col w-full mb-4">
                 <label class="mb-2">Email</label>
-                <input type="email" name="email" placeholder="Email" class="w-full p-2 border rounded" />
+                <input type="email" value="{{$student->email}}" name="email" placeholder="Email"
+                    class="w-full p-2 border rounded" />
             </div>
             <div class="flex flex-col w-full mb-4">
                 <label class="mb-2">Subject</label>
-                <select name="subject_id" class="w-full p-2 border rounded">
+                <select name="subject_id" value="{{$student->subject_id}}" class="w-full p-2 border rounded">
                     @foreach ($subjects as $subject)
                     <option value="{{$subject->id}}">{{$subject->subject_name}}</option>
                     @endforeach

@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = ['name', 'email', 'subject_id'];
+    protected $fillable = ['name', 'email', 'subject_id', 'image_url'];
     use HasFactory;
-
 
     public function subject()
     {

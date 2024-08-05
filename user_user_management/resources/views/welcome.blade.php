@@ -907,7 +907,7 @@
         <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] ">
             <header class="w-full flex justify-center items-center">
                 <nav class="flex justify-center items-center">
-                    <a href="#" class="flex justify-center items-center font-semibold">
+                    <a href="/students" class="flex justify-center items-center font-semibold">
                         Go To Dashboard
                     </a>
                 </nav>
