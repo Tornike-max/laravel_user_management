@@ -11,7 +11,21 @@
 
 </head>
 
-<body>
+<body class="max-w-[2200px] w-full">
+    <header class="w-full top-0 left-0">
+        <nav class="w-full flex justify-center items-center gap-4">
+            @auth
+            <form method='POST' action="{{route('logout')}}">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
+            @endauth
+            @guest
+            <a href="{{route('registerForm')}}">Register</a>
+            <a href="{{route('loginForm')}}">Login</a>
+            @endguest
+        </nav>
+    </header>
     <main class="w-full flex justify-center items-center flex-col p-10">
         {{$slot}}
     </main>
