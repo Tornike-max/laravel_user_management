@@ -8,14 +8,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/students', [StudentsController::class, 'index'])->name('students.index');
-Route::get('/students/show/{student}', [StudentsController::class, 'show']);
+Route::get('/students', [StudentsController::class, 'index'])->name('students.index')->middleware('auth');
+Route::get('/students/show/{student}', [StudentsController::class, 'show'])->middleware('auth');
 
-Route::get('/students/create', [StudentsController::class, 'create']);
-Route::post('/students/create', [StudentsController::class, 'store']);
-Route::get('/students/edit/{student}', [StudentsController::class, 'edit']);
-Route::put('/students/update/{student}', [StudentsController::class, 'update']);
-Route::delete('/students/{student}/delete', [StudentsController::class, 'destroy']);
+Route::get('/students/create', [StudentsController::class, 'create'])->middleware('auth');
+Route::post('/students/create', [StudentsController::class, 'store'])->middleware('auth');
+Route::get('/students/edit/{student}', [StudentsController::class, 'edit'])->middleware('auth');
+Route::put('/students/update/{student}', [StudentsController::class, 'update'])->middleware('auth');
+Route::delete('/students/{student}/delete', [StudentsController::class, 'destroy'])->middleware('auth');
 
 
 Route::get('/users/register', [UserController::class, 'register'])->name('registerForm');

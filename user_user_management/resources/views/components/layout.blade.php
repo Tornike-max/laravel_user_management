@@ -13,16 +13,20 @@
 
 <body class="max-w-[2200px] w-full">
     <header class="w-full top-0 left-0">
-        <nav class="w-full flex justify-center items-center gap-4">
+        <nav class="w-full flex justify-center items-center gap-4 my-4">
             @auth
             <form method='POST' action="{{route('logout')}}">
                 @csrf
-                <button type="submit">Logout</button>
+                <button
+                    class="py-2 px-3 rounded-md bg-slate-200 hover:bg-blue-500 hover:text-slate-100 duration-200 transition-all"
+                    type="submit">Logout</button>
             </form>
             @endauth
             @guest
-            <a href="{{route('registerForm')}}">Register</a>
-            <a href="{{route('loginForm')}}">Login</a>
+            <a class="py-2 px-3 rounded-md {{request()->is('users/register') ? 'bg-blue-500 text-slate-100' : 'bg-slate-200 text-slate-800' }}"
+                href="{{route('registerForm')}}">Register</a>
+            <a class="py-2 px-3 rounded-md {{request()->is('users/login') ? 'bg-blue-500 text-slate-100' : 'bg-slate-200 text-slate-800' }}"
+                href="{{route('loginForm')}}">Login</a>
             @endguest
         </nav>
     </header>
